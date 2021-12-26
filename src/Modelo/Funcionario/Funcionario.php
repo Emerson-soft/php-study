@@ -14,7 +14,11 @@ abstract class Funcionario extends Pessoa
     parent::__construct($nome, $cpf);
     $this->salario = $salario;
  }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> e07ee9350ac6b2566c67c113ca3f0228895e222a
  protected function alteraNome(string $nome): void
  {
    $this->validarNome($nome);
@@ -26,10 +30,16 @@ abstract class Funcionario extends Pessoa
    return $this->salario;
  }
 
- public function calculaBonificacao(): float
+ public function recebeAumento(float $valorAumento): void
  {
-   return $this->salario * 0.1;   
+    if($valorAumento < 0){
+      echo "Aumento Deve Ser Positivo";
+      return;
+    }
+
+    $this->salario += $valorAumento;
  }
 
+ abstract public function calculaBonificacao(): float;
 
 }
